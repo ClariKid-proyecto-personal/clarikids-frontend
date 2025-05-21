@@ -1,40 +1,36 @@
 import { useState } from "react";
+import { searchQuestions } from "../services/api";
 import API from "../services/api";
 
 function ChatForm({ onAnswer }) {
   const [question, setQuestion] = useState("");
-  const [subject, setSubject] = useState("mates");
+  const [subject, setSubject] = useState("matemáticas");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // 1. Enviar la pregunta con su asignatura
-      const res = await API.post("/questions", {
-        questionText: question,
-        subject: subject,
-      });
-
-      // 2. Buscar si hay respuesta parecida
-      const answers = await API.get("/answers");
-      const matching = answers.data.find((ans) =>
-        res.data.questionText
-          .toLowerCase()
-          .includes(ans.question.questionText.toLowerCase())
-      );
-
-      if (matching) {
-        onAnswer(matching.answerText);
+      // Buscar si hay una pregunta similar ya respondida
+      const resultados = await searchQuestions(question, subject);
+  
+      if (resultados.length > 0 && resultados[0].answerText) {
+        onAnswer(resultados[0].answerText); // ✅ Mostrar la respuesta directamente
       } else {
+        // Si no hay respuesta, guardar la pregunta como nueva
+        await API.post("/questions", {
+          questionText: question,
+          subject: subject,
+        });
+  
         onAnswer("Aún no hay respuesta 😥");
       }
-
-      setQuestion("");
+  
+      setQuestion(""); // Limpiar input
     } catch (error) {
-      console.error("Error al enviar pregunta:", error);
+      console.error("Error al buscar o guardar pregunta:", error);
       onAnswer("Hubo un error 😖");
     }
   };
-
+  
   return (
     <form onSubmit={handleSubmit} style={{ marginBottom: "1rem" }}>
       <label>
@@ -44,10 +40,10 @@ function ChatForm({ onAnswer }) {
           onChange={(e) => setSubject(e.target.value)}
           style={{ marginBottom: "0.5rem" }}
         >
-          <option value="mates">Matemáticas</option>
+          <option value="matemáticas">Matemáticas</option>
           <option value="lengua">Lengua</option>
-          <option value="ciencias">Ciencias</option>
-          <option value="sociales">Sociales</option>
+          <option value="ciencias sociales">Ciencias Sociales</option>
+          <option value="ciencias naturales">Ciencias Naturales</option>
         </select>
       </label>
       <br />
