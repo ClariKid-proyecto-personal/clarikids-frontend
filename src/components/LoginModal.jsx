@@ -12,7 +12,7 @@ function LoginModal({ role, onClose }) {
     e.preventDefault();
     try {
       const response = await login(username, password);
-      localStorage.setItem("token", response.token);
+      //localStorage.setItem("token", response.token);
       localStorage.setItem("role", response.role);
 
       onClose();

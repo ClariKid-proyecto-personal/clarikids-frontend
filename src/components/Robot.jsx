@@ -8,9 +8,10 @@ function Robot() {
         position: "absolute",
         bottom: "0",
         left: "0",
-        width: "300px",
+        width: "700px",
+        height: "auto",
+        zIndex: "0",
         pointerEvents: "none",
-        zIndex: "-1",
       }}
     >
       <Lottie animationData={robotAnimation} loop={true} />
