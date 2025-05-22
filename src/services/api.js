@@ -1,13 +1,14 @@
 import axios from "axios";
 
-const API = axios.create({
-  baseURL: "http://localhost:8080/api",
+const api = axios.create({
+  baseURL: "http://localhost:8080",
+  withCredentials: true,
 });
 
 // Exporta las funciones individuales
 export const searchQuestions = async (text, subject) => {
   try {
-    const response = await API.get(`/questions/search`, {
+    const response = await api.get(`/questions/search`, {
       params: { text, subject },
     });
     return response.data;
@@ -17,4 +18,4 @@ export const searchQuestions = async (text, subject) => {
   }
 };
 
-export default API;
+export default api;

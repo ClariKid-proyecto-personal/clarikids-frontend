@@ -11,6 +11,7 @@ function ChatForm({ onAnswer }) {
     try {
       // Buscar si hay una pregunta similar ya respondida
       const resultados = await searchQuestions(question, subject);
+      console.log("🔍 Resultado del backend:", resultados);
   
       if (resultados.length > 0 && resultados[0].answerText) {
         onAnswer(resultados[0].answerText); // ✅ Mostrar la respuesta directamente
