@@ -1,0 +1,146 @@
+.container {
+    position: relative;
+    height: 100vh;
+    background-image: url('../../assets/fondo.png'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5%;
+}
+  
+.content {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 2rem;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    margin-right: 6%;
+}
+  
+.title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #2e2e85;
+    text-align: center;
+    
+}
+  
+.robot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 280px;
+    z-index: 1;
+}
+  
+.subjects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+  
+.subjectButton {
+    background-color: #ffffff;
+    color: #333;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-family: 'Quicksand', sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-width: 240px; 
+    min-width: 240px; 
+ 
+}
+  
+.subjectButton:hover {
+    transform: scale(1.05);
+    background-color: #f0f0ff;
+}
+  
+.selected {
+    background-color: #e0f7f2;
+    box-shadow: 0 0 0 3px #6be7d8 inset;
+    color: #333;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+  
+.form input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+  
+.form button {
+    background-color: #b38bfa;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+  
+.form button:hover {
+    background-color: #9b6efb;
+}
+  
+.answer {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #e3d6fb;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+.input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    margin-top: 1rem; 
+  }
+
+.matematicas {
+    background-color: #ffe5ec;
+    color: #d6336c;
+}
+  
+.lengua {
+    background-color: #e0f7ff;
+    color: #0077b6;
+}
+  
+.sociales {
+    background-color: #fff4cc;
+    color: #cc8800;
+}
+  
+.naturales {
+    background-color: #e2fbe4;
+    color: #388e3c;
+}

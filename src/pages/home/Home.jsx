@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./Home.module.css";
 import { login } from "../../services/authService";
 
+
 function Home() {
   const [modalAbierto, setModalAbierto] = useState(null);
   const [username, setUsername] = useState("");
@@ -31,7 +32,10 @@ function Home() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.overlay}>
+          <div className={styles.titleWrapper}>
+            <h1 className={styles.chewyTitle}>Clarikids</h1>
+          </div>
+        <div className={styles.overlay}>
         <h2 className={styles.title}>¿Quién eres?</h2>
         <div className={styles.buttonGroup}>
           <button className={styles.alumnoButton} onClick={abrirModalAlumno}>

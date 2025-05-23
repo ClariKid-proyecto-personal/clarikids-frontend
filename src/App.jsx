@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 import Home from "./pages/home/Home.jsx";
-import Profe from "./pages/Profe";
+import Profe from "./pages/profe/Profe.jsx";
 import Alumno from "./pages/alumno/Alumno.jsx";
 import ProtectedRoute from "./components/ProtectedRoute";
 
